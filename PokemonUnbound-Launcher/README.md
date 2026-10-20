@@ -1,0 +1,1 @@
+Launcher Nativo - Abra o build.bat para compilar
