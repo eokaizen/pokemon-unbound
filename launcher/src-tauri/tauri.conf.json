@@ -1,0 +1,15 @@
+{
+  "package": { "productName": "pokemon-unbound", "version": "1.0.0" },
+  "build": { "beforeDevCommand": "npm run dev", "beforeBuildCommand": "npm run build", "devPath": "http://localhost:1420", "distDir": "../dist" },
+  "tauri": {
+    "allowlist": { "dialog": { "all": true }, "fs": { "all": true, "scope": ["$APPDATA/**", "$RESOURCE/**", "./game/**"] }, "path": { "all": true }, "shell": { "open": true } },
+    "bundle": {
+      "active": true,
+      "targets": ["nsis"],
+      "identifier": "com.pokemon-unbound.launcher",
+      "icon": ["icons/icon.png"],
+      "windows": { "webviewInstallMode": { "type": "embedBootstrapper" } }
+    },
+    "windows": [{ "title": "pokemon-unbound", "width": 1280, "height": 720, "resizable": true, "fullscreen": false }]
+  }
+}
