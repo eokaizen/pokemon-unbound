@@ -1,0 +1,13 @@
+POKEMON-UNBOUND - DOWNLOAD AND PLAY
+
+1. Coloque seu arquivo Pokemon Unbound v2.1.1.1.gba de 32MB (33.554.432 bytes) NESTA PASTA /game/
+   Ex: game/Pokemon Unbound v2.1.1.1.gba
+
+2. Abra pokemon-unbound.exe
+
+3. O launcher vai detectar automaticamente e liberar o botão JOGAR. Clique em JOGAR.
+
+ALTERNATIVA: Se sua ROM estiver em outro lugar, abra o exe e clique em "Selecionar ROM" e aponte para ela.
+
+IMPORTANTE: Este launcher NAO distribui o jogo. Use apenas sua copia legalmente obtida.
+Save fica em %APPDATA%/pokemon-unbound/saves/
