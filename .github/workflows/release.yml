@@ -1,7 +1,7 @@
 name: Build pokemon-unbound
 on:
   push:
-    tags: [\'v*\']
+    tags: [\'v*\'] # quando você criar uma tag v1.0.0
   workflow_dispatch:
 
 jobs:
@@ -9,25 +9,20 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          submodules: recursive
+        with: { submodules: true }
       - uses: actions/setup-node@v4
-        with:
-          node-version: 20
+        with: { node-version: 20 }
       - uses: dtolnay/rust-toolchain@stable
 
-      - name: Install frontend
-        run: npm install
+      - run: npm install
         working-directory: launcher
-
-      - name: Build Tauri
-        uses: tauri-apps/tauri-action@v0
+      - uses: tauri-apps/tauri-action@v0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           projectPath: launcher
           tagName: v1.0.0
-          releaseName: "pokemon-unbound v1.0.0 - Download and Play"
-          releaseBody: "Baixe o Setup.exe abaixo. Coloque seu Pokemon Unbound v2.1.1.1.gba de 32MB na pasta /game/ e clique em JOGAR. ROM não inclusa."
+          releaseName: "pokemon-unbound v1.0.0"
+          releaseBody: "Baixe o Setup.exe, coloque sua ROM 32MB em /game/ e jogue."
           releaseDraft: false
           args: --bundles nsis
