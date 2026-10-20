@@ -1,0 +1,15 @@
+[package]
+name = "pokemon-unbound"
+version = "1.0.0"
+edition = "2021"
+rust-version = "1.77"
+
+[dependencies]
+tauri = { version = "1.5", features = ["dialog-all", "fs-all", "path-all", "shell-open"] }
+serde = { version = "1.0", features = ["derive"] }
+gilrs = "0.10"
+cpal = "0.15"
+
+[build-dependencies]
+tauri-build = "1.5"
+cc = "1.0"
