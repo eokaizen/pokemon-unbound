@@ -1,0 +1,33 @@
+name: Build pokemon-unbound
+on:
+  push:
+    tags: [\'v*\']
+  workflow_dispatch:
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - uses: dtolnay/rust-toolchain@stable
+
+      - name: Install frontend
+        run: npm install
+        working-directory: launcher
+
+      - name: Build Tauri
+        uses: tauri-apps/tauri-action@v0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          projectPath: launcher
+          tagName: v1.0.0
+          releaseName: "pokemon-unbound v1.0.0 - Download and Play"
+          releaseBody: "Baixe o Setup.exe abaixo. Coloque seu Pokemon Unbound v2.1.1.1.gba de 32MB na pasta /game/ e clique em JOGAR. ROM não inclusa."
+          releaseDraft: false
+          args: --bundles nsis
